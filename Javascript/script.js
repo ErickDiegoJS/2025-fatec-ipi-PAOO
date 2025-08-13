@@ -96,7 +96,7 @@
 // console.log(dobro(1))
 // const dobro => 2 * n
 // console.log(dobro(5))
-
+// // ========================================================
 // vetores, parte 2
 // const nomes = ['Ana Maria', 'Antonio', 'Rodrigo', 'Alex', 'Cristina']
 // A função filter percorre uma coleção e retorna apenas os elementos 
@@ -116,6 +116,80 @@
 // const todosComeçamComA =nomes.every(n => n.startsWith('A'))
 // const aoMenosUmComeçaComA =nomes.some(n => n.startsWith('A'))
 
-const valores = [1, 2, 3, 4]
-// const soma = valores.reduce((acm, v) => acm + v)
-// console.log(soma)
+// const valores = [1, 2, 3, 4]
+// // const soma = valores.reduce((acm, v) => acm + v)
+// // console.log(soma)
+
+// // ========================================================
+
+// // closures
+// // umaFução é uma função que exibe uma string e retorna undefined
+// let umaFunção = function(){
+//     console.log('Fui armazenada em uma variavel')
+// }
+// // executa a função
+// // umaFunção()
+// // cria uma função que executa uma função
+// function f(função){
+//     função()
+// }
+// // executa a função
+// // se colocar umaFunção() você esta passando o resultado da função, não a função em si
+// f(umaFunção)
+
+// function g(){
+//     function outraFunção(){
+//         console.log('Fui criada por g')
+//     }
+//     return outraFunção
+// }
+
+// // f(g())
+
+// // f(g)
+
+// // // g() executa a função g e espera que ela retorne uma função.
+// // // O segundo () executa a função retornada por g.
+// // g()()
+
+// // const gResult = g()
+// // gResult()
+
+// // f(function(){
+// //     console.log('Sou uma function passada para f')
+// // })
+// // f(() => console.log('Sou uma arrow function'))
+
+// // ========================================================
+
+// function f(){
+//     let nome = 'João'
+//     function g(){
+//         comsole.log(nome)
+//     }
+//     g()
+// }
+// f()
+
+// function ola(){
+//     let nome = João
+//     return function(){
+//         console.log(`Ola, ${nome}`)
+//     }
+// }
+// let olaResult = ola()
+
+// olaResult()
+
+// // closures é a variavel mais a função interna
+
+function saudacoesFactory(saudação, nome){
+    return function(){
+        console.log(`${saudação}, ${nome}`)
+    }
+}
+
+let olaJoão = saudacoesFactory('ola', 'joão')
+let tchauJoão = saudacoesFactory('tchau','joão')
+olaJoão()
+tchauJoão()
