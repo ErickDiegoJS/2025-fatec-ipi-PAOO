@@ -183,13 +183,40 @@
 
 // // closures é a variavel mais a função interna
 
-function saudacoesFactory(saudação, nome){
-    return function(){
-        console.log(`${saudação}, ${nome}`)
+// function saudacoesFactory(saudação, nome){
+//     return function(){
+//         console.log(`${saudação}, ${nome}`)
+//     }
+// }
+
+// let olaJoão = saudacoesFactory('ola', 'joão')
+// let tchauJoão = saudacoesFactory('tchau','joão')
+// olaJoão()
+// tchauJoão()
+
+// // ======================================== cap 2 =================================
+// objeto javascript - uma coleção de pares de chave e valor - não é sinonimo de Objeto JSON (Javascript Object Notation), mas são parecidos
+// uma pessoa se chama joão e tem 17 anos
+
+// let pessoa = {
+//     // 'nome' é uma chave e 'João' é um valor
+//     nome: 'João',
+//     idade: 17 
+// }
+
+// console.log('Me chamo ' + pessoa.nome)
+// console.log('Minha idade é ' + pessoa['idade'])
+// // =============================
+
+let pessoa ={
+    nome: 'Maria',
+    idade: 21,
+    endereço: {
+        logradouro: 'B', 
+        numero: 121
     }
 }
 
-let olaJoão = saudacoesFactory('ola', 'joão')
-let tchauJoão = saudacoesFactory('tchau','joão')
-olaJoão()
-tchauJoão()
+console.log(pessoa.endereço.logradouro)
+console.log(pessoa['endereço']['numero'])
+console.log(pessoa['endereço'].logradouro)
