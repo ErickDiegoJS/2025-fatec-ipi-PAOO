@@ -208,15 +208,58 @@
 // console.log('Minha idade é ' + pessoa['idade'])
 // // =============================
 
-let pessoa ={
-    nome: 'Maria',
-    idade: 21,
-    endereço: {
-        logradouro: 'B', 
-        numero: 121
-    }
-}
+// let pessoa ={
+//     nome: 'Maria',
+//     idade: 21,
+//     endereço: {
+//         logradouro: 'B', 
+//         numero: 121
+//     }
+// }
 
-console.log(pessoa.endereço.logradouro)
-console.log(pessoa['endereço']['numero'])
-console.log(pessoa['endereço'].logradouro)
+// console.log(pessoa.endereço.logradouro)
+// console.log(pessoa['endereço']['numero'])
+// console.log(pessoa['endereço'].logradouro)
+//  ====================================================================
+
+// inferno de callbacks
+// callback hell
+// function calculoDemorado(n){
+//     let p = new Promise(function(resolve, reject){
+//         let res = 0
+//     for(let i = 1; i<=n;i++){
+//         res = res+i;
+//     }
+//     resolve(res)
+//     })
+//     return p
+// }
+// let minhaPromise = calculoDemorado(10)
+// // then/catch
+// minhaPromise
+// .then((somatorio) => {
+//     console.log(`Somatorio: ${somatorio}`)
+// })
+// .catch((erro) => {
+//     console.log(`Erro: ${erro}`)
+// })
+// console.log('Terminando o script principal...')
+
+function calculoRapidinho(n){
+    return Promise.resolve((n / 2) * (n + 1))
+}
+let minhaPromise = calculoRapidinho(10)
+minhaPromise
+.then((res) => {console.log(`Reusltado: ${res}`)})
+.catch((erro) => {console.log(`Erro: ${erro}`)})
+console.log('Terminando...')
+
+minhaPromise
+.then((res) => {console.log(`Reusltado: ${res}`)})
+.catch((erro) => {console.log(`Erro: ${erro}`)})
+console.log('Terminando...')
+
+let minhaPromise2 = calculoRapidinho(-6)
+.then(res => {console.log(`Resultado: ${res}`)})
+.catch((erro) => {console.log(`Erro: ${erro}`)})
+console.log('Terminando...')
