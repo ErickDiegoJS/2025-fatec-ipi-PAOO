@@ -1,12 +1,12 @@
 const { v4 : uuidv4} = require('uuid')
 const express = require('express')
 const app = express()
-app.use(express.json)
+app.use(express.json())
 
 //GET serve para obter coisas do servidor
 //POST serve para cadastrar itens novos
 //PUT serve para atualizar itens existentes
-//DELETE serve para apagar items existentes
+//DELETE serve para apagar items existentesç
 
 /*
 (
@@ -33,6 +33,12 @@ app.post('/lembretes/:id/observações', (req, res) => {
     observacoesDoLembrete.push({observacao})
     observacoesPorLembrete[lembreteId] = observacoesDoLembrete
     res.status(201).json(observacoesDoLembrete)
+})
+
+app.post('/evento', (req, res) => {
+    const evento = req.body
+    console.log(evento)
+    res.end()
 })
 
 // GET /lembretes/:id/observacoes (req, res) => {}
