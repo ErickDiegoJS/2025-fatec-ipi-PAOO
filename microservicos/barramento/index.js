@@ -7,12 +7,13 @@ app.use(express.json());
 app.post('/eventos', (req, res) => {
     const evento = req.body
     console.log(evento)
-    axios.post('http//localhost/:4000/eventos', evento)
-    axios.post('http//localhost/:5000/evento')
+    axios.post('http://localhost:4000/eventos', evento)
+    axios.post('http://localhost:5000/evento', evento)
+    axios.post('http://localhost:6000/evento', evento)
     res.end()
 });
 
-const port = 10000;
+const port = 10000; 
 app.listen(port, ()  => (
     console.log(`Barramento. Porta ${port}`)
 ));

@@ -9,7 +9,7 @@ app.use(express.json())
 //DELETE serve para apagar items existentesç
 
 /*
-(
+(   
     1: [
         (id:100, text0: 'comprar acucar', lembreteId: 1)
         ]
@@ -32,13 +32,17 @@ app.post('/lembretes/:id/observações', (req, res) => {
     const observacoesDoLembrete = observacoesPorLembrete [lembreteId] || []
     observacoesDoLembrete.push({observacao})
     observacoesPorLembrete[lembreteId] = observacoesDoLembrete
-    res.status(201).json(observacoesDoLembrete)
+    axios.post('http://localhost:10000/eventos', {
+        type: 'ObservaçãoCriada',
+        payload: observacao
+    })
+    res.status(201).json(observacoesDoLembrete) //retorna um json ao barramento
 })
 
 app.post('/evento', (req, res) => {
     const evento = req.body
     console.log(evento)
-    res.end()
+    res.end() //responde o barramento sem retornar nada
 })
 
 // GET /lembretes/:id/observacoes (req, res) => {}
